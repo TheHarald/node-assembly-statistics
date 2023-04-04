@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String           @id @default(uuid())
+  name            String
+  login           String           @unique
+  position        String
+  assemblyResults AssemblyResult[]
+}
+
+model AssemblyResult {
+  id           String          @id @default(uuid())
+  nodeName     String
+  imageURL     String?         @default("")
+  assemblyTime Int
+  errorsCount  Int
+  assemblyType String
+  assemblyDate DateTime        @default(now())
+  errors       AssemblyError[]
+  user         User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+}
+
+model AssemblyError {
+  id             String          @id @default(uuid())
+  errorName      String
+  detailName     String
+  step           String?         @default("")
+  assemblyResult AssemblyResult? @relation(fields: [assemblyId], references: [id], onDelete: Cascade)
+  assemblyId     String
+}
