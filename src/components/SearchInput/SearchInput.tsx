@@ -15,7 +15,6 @@ const StyledSearchInput = styled.input`
     border: 1px solid #A1A7C4;
     border-radius: 6px;
     max-width : 600px;
-
 `;
 
 function SearchInput(props: SearchInputProps) {

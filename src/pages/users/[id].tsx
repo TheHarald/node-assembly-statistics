@@ -104,7 +104,6 @@ function UserPage(props: SerializedUserPageProps) {
         fetch(`/api/assembly-errors/${id}`)
             .then(res => res.json())
             .then(data => {
-                /* console.log(data) */
                 setAssemblyErrors(data)
             })
             .catch(error => console.log(error))

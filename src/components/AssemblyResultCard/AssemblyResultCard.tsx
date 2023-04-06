@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Parameter from '../Parameter/Parameter';
 import { Gears } from '@styled-icons/fa-solid/Gears'
@@ -34,11 +34,12 @@ const StyledInfoContainer = styled.div`
 `
 
 function AssemblyResultCard(props: AssemblyResultCardProps) {
+
     return (
         <StyledAssemblyResultCard onClick={() => props.onClick(props.assemblyRessult.id)}>
             <Image
                 alt='detail'
-                src={"/details/default.png"}
+                src={props.assemblyRessult.imageURL ? `/details/${props.assemblyRessult.imageURL}.png` : '/details/default.png'}
                 width={200}
                 height={200}
             />
