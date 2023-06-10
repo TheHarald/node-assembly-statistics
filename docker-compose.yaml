@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+  assembly-db:
+    build: ./prisma/db
+    restart: always
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-psecret",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - statistic-app-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DATABASE}
+    volumes:
+      - ./data:/var/lib/mysql
+  
+  statistic-app:
+    build: .
+    restart: always
+    networks:
+      - statistic-app-network
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    ports:
+      - "3000:3000"
+    depends_on:
+      assembly-db:
+        condition: service_healthy
+  
+  
+networks:
+  statistic-app-network:
+    driver: bridge
+
+volumes:
+  statistic-app-data:
+

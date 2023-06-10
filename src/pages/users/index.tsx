@@ -23,13 +23,21 @@ const StyledUserCardsContainer = styled.section`
     flex-direction: row;
     gap: 16px;
     flex-wrap: wrap;
+    @media (min-width: 320px) and (max-width: 900px) {
+        gap: 8px;
+        flex-direction: column;
+    }
 `
 
 const StyledUsersPage = styled.section`
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 24px
+    padding: 24px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        padding: 16px;
+    }
+    
 `
 
 const StyledContainer = styled.div`
@@ -42,6 +50,12 @@ const StyledMainContainer = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 32px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
 `
 
 

@@ -10,6 +10,9 @@ const StyledTitle = styled.h2`
     font-size: 28px;
     line-height: 34px;
     color: #131523;
+    @media (min-width: 320px) and (max-width: 900px) {
+        font-size: 20px;
+    }
 `;
 
 function Title(props: TitleProps) {

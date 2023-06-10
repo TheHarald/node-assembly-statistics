@@ -28,6 +28,9 @@ const StyledNavigationButton = styled.button`
         cursor: pointer;
         background: #efefef;
     }
+    @media (min-width: 320px) and (max-width: 900px) {
+        font-size: 16px;
+    }
 `;
 
 function NavigationButton(props: NavigationButtonProps) {

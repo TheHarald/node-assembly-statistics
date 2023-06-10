@@ -23,21 +23,48 @@ const StyledAssemblyResultCard = styled.article`
     display: flex;
     flex-direction: row;
     gap: 8px;
-    padding-right: 16px
+    padding-right: 16px;
+    position: relative;
+    overflow: hidden;
+    @media (min-width: 320px) and (max-width: 900px) {
+        padding: 0;
+    }
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+    
 `;
 
 const StyledInfoContainer = styled.div`
-    padding: 16px 0px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        padding: 12px;
+        gap: 4px;
+    }
+`
+
+const StyledImage = styled(Image)`
+    /* object-fit:cover ; */
+    @media (min-width: 320px) and (max-width: 900px) {
+        display: none;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        right: -20px;
+        bottom: -20px;
+    } 
+   
 `
 
 function AssemblyResultCard(props: AssemblyResultCardProps) {
 
     return (
         <StyledAssemblyResultCard onClick={() => props.onClick(props.assemblyRessult.id)}>
-            <Image
+            <StyledImage
                 alt='detail'
                 src={props.assemblyRessult.imageURL ? `/details/${props.assemblyRessult.imageURL}.png` : '/details/default.png'}
                 width={200}
@@ -53,6 +80,7 @@ function AssemblyResultCard(props: AssemblyResultCardProps) {
 
         </StyledAssemblyResultCard>
     );
+
 }
 
 export default AssemblyResultCard;

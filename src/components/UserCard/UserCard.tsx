@@ -16,13 +16,18 @@ const StyledUserCard = styled.article`
     padding: 16px;
     display: flex;
     flex-direction: row;
-    gap: 16px;
-    width: min-content;
+    gap: 16px;  
+    /* width: min-content; */
     transition: 0.3s;
+
     &:hover{    
         background: #D7DBEC;
         cursor: pointer;
     }
+    @media (min-width: 320px) and (max-width: 900px) {
+        width: 100%;
+    }
+    
 `;
 
 const StyledName = styled.h4`
@@ -30,6 +35,9 @@ const StyledName = styled.h4`
     color: #007AFF;
     font-weight: 500;
     white-space: nowrap;
+    @media (min-width: 320px) and (max-width: 900px) {
+        font-size: 20px;
+    }
 `
 
 const StyledPosition = styled.span`
@@ -37,12 +45,17 @@ const StyledPosition = styled.span`
     color: #9A9A9A;
     font-weight: 400;
     white-space: nowrap;
+    @media (min-width: 320px) and (max-width: 900px) {
+        font-size: 14px;
+        white-space: normal;
+    }
 `
 
 const StyledDeleteButton = styled(Delete)`
     color: #F12B43;
     width: 24px;
     height: 24px;
+    margin-left: auto;
     &:hover{
         color: #F0142F;
         cursor: pointer;
@@ -70,7 +83,6 @@ function UserCard(props: UserCardProps) {
     }
 
     function handleDelete(event: React.MouseEvent<SVGSVGElement>) {
-        console.log('delete' + props.id);
         fetch(`/api/users/${props.id}`, { method: 'DELETE' }).then(response => response.json()).then(data => {
             console.log(data);
             replace(asPath)

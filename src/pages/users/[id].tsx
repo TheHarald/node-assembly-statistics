@@ -16,6 +16,11 @@ const StyledUserPage = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        flex-direction: column;
+        display: flex;
+        gap: 16px;
+    }
 `;
 
 const StyledAssemblyResults = styled.div`
@@ -35,6 +40,11 @@ const StyledAssemblyErrorsContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
 `
 
 const StyledUserPageContainer = styled.div`
@@ -42,6 +52,10 @@ const StyledUserPageContainer = styled.div`
     flex-direction: column;
     gap: 16px;
     padding: 24px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        padding: 16px;
+    }
+    
 `
 
 

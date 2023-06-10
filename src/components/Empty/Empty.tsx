@@ -32,7 +32,7 @@ function Empty(props: EmptyProps) {
             <StyledEmptyIcon>
             </StyledEmptyIcon>
             <StyledTitle>
-                Пока пусто, выберите сьорку узла чтобы посмотреть ошибки.
+                Пока пусто, выберите сборку узла чтобы посмотреть ошибки.
             </StyledTitle>
 
         </StyledEmpty>

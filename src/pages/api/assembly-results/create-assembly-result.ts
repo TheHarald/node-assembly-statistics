@@ -15,7 +15,7 @@ export default async function handler(
         optionsSuccessStatus: 200,
     });
 
-    console.log('test', JSON.stringify(req.body));
+    // console.log('test', JSON.stringify(req.body));
 
     const { method, body } = req
 

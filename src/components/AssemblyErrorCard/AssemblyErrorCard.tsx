@@ -16,38 +16,27 @@ const StyledAssemblyErrorCard = styled.article`
     display: flex;
     gap: 8px;
     flex-direction: column;
-    /* width: min-content; */
+    border-radius: 8px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        width: 100%;
+    }
 `;
 
 const StyledTitle = styled.h5`
     font-weight: 500;
     font-size: 20px;
-    line-height: 24px;
     color: #FFB608;
-`
+    @media (min-width: 320px) and (max-width: 900px) {
+        font-size: 16px;
 
-const StyledText = styled.p`
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
-    color: #5A607F;
+    }
 `
-
-const StyledIconContainer = styled.div`
-    display: flex;
-    gap: 8px;
-    flex-direction: row;
-    align-items: center;
-`
-
 function AssemblyErrorCard(props: AssemblyErrorCardProps) {
     return (
         <StyledAssemblyErrorCard>
             <StyledTitle>
                 {props.errorName}
             </StyledTitle>
-
-
             {<Parameter icon={<GearWide />} title='Название детали' value={props.detailName} />}
             {<Parameter icon={<BarChartSteps />} title='Шаг' value={`${props.step || 'нет'} `} />}
 

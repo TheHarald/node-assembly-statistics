@@ -9,6 +9,9 @@ const StyledVRBunner = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    @media (min-width: 320px) and (max-width: 900px) {
+        display: none;
+    }
 `;
 
 function VRBunner(props: VRBunnerProps) {
@@ -20,7 +23,7 @@ function VRBunner(props: VRBunnerProps) {
                 height={420}
                 alt='VRBanner'
             />
-            <Title text='Выберите пользователя, чтобы посмотреть его рузльтаты сборки узлов' />
+            <Title text='Выберите пользователя, чтобы посмотреть его результаты сборки узлов' />
 
         </StyledVRBunner>
     );
